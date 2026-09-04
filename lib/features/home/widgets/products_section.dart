@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:more_devs_do_zero/features/home/controllers/home_controller.dart';
 import 'package:more_devs_do_zero/features/home/models/products_model.dart';
 import 'package:more_devs_do_zero/features/home/widgets/product_card.dart';
-//import 'package:more_devs_do_zero/features/home/pages/product_card.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class ProductsSection extends StatelessWidget {
