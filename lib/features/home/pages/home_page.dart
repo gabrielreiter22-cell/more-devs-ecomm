@@ -56,41 +56,43 @@ class _HomePageState extends State<HomePage> {
 
       body: Consumer<HomeController>(
         builder: (context, homeController, child) {
-          return Column(
-            children: [
-              SizedBox(
-                height: 156,
-                child: PageView(
-                  controller: _pageController,
-                  children: [for (var banner in bannerItems) banner],
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 156,
+                  child: PageView(
+                    controller: _pageController,
+                    children: [for (var banner in bannerItems) banner],
+                  ),
                 ),
-              ),
-              SizedBox(height: 8),
+                SizedBox(height: 8),
 
-              smoothPageIndicator(
-                pageController: _pageController,
-                bannerItems: bannerItems,
-              ),
-              CategoriesSection(
-                categories: homeController.categories,
-                state: homeController.categoriesViewState,
-              ), //
+                smoothPageIndicator(
+                  pageController: _pageController,
+                  bannerItems: bannerItems,
+                ),
+                CategoriesSection(
+                  categories: homeController.categories,
+                  state: homeController.categoriesViewState,
+                ), //
 
-              SizedBox(height: 4), // Espaçamento entre categorias e produtos
-              ProductsSection(
-                products: homeController.products,
-                state: homeController.productsViewState,
-              ),
+                SizedBox(height: 4), // Espaçamento entre categorias e produtos
+                ProductsSection(
+                  products: homeController.products,
+                  state: homeController.productsViewState,
+                ),
 
-              // AppElevatedButton(
-              //   label: 'asdasd',
-              //   type: ButtonType.filled,
-              //   onPressed: () {
-              //     homeController
-              //       ..getCategories()
-              //       ..getProducts();
-              //},
-            ],
+                // AppElevatedButton(
+                //   label: 'asdasd',
+                //   type: ButtonType.filled,
+                //   onPressed: () {
+                //     homeController
+                //       ..getCategories()
+                //       ..getProducts();
+                //},
+              ],
+            ),
           );
         },
       ),

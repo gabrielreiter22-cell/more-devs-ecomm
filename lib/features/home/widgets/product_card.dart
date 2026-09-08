@@ -14,8 +14,8 @@ class ProductCard extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 150,
-            width: 150,
+            height: 80,
+            width: 140,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               image: DecorationImage(

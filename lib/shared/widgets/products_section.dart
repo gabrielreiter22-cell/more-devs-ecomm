@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:more_devs_do_zero/features/home/controllers/home_controller.dart';
 import 'package:more_devs_do_zero/features/home/models/products_model.dart';
-import 'package:more_devs_do_zero/shared/widgets/product_card.dart';
+import 'package:more_devs_do_zero/features/home/widgets/product_card.dart';
+// import 'package:more_devs_do_zero/shared/widgets/product_card.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class ProductsSection extends StatelessWidget {
@@ -21,7 +22,7 @@ class ProductsSection extends StatelessWidget {
       child: switch (state) {
         ProductsViewState.error => Text('Problema ao restagar categorias'),
         _ => SizedBox(
-          height: 220,
+          height: 240,
           child: Skeletonizer(
             enabled: state == ProductsViewState.loading,
             child: ListView.builder(
