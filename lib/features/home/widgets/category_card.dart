@@ -15,18 +15,27 @@ class CategoryCard extends StatelessWidget {
 
       //height: 50,
       //width: 50,
-      child: Column(
-        children: [
-          Skeleton.replace(
-            replacement: Bone(
-              height: 80,
-              width: 80,
-              borderRadius: BorderRadius.circular(50),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(
+            context,
+            '/products-by-category',
+            arguments: category.name,
+          );
+        },
+        child: Column(
+          children: [
+            Skeleton.replace(
+              replacement: Bone(
+                height: 40,
+                width: 40,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Image.network(category.imageUrl),
             ),
-            child: Image.network(category.imageUrl),
-          ),
-          Text(category.name, style: AppTextStyle.smallGrey),
-        ],
+            Text(category.name, style: AppTextStyle.smallGrey),
+          ],
+        ),
       ),
     );
   }

@@ -13,7 +13,7 @@ class AppRoutes {
     HomePage.route: (context) => const HomePage(),
     ProductsByCategoryPage.route: (context) {
       final categoryName =
-          ModalRoute.of(context)?.settings.arguments as String? ?? 'Categoria';
+          ModalRoute.of(context)?.settings.arguments as String? ?? 'Frutas';
       return ProductsByCategoryPage(categoryName: categoryName);
     },
   };

@@ -24,37 +24,31 @@ class LoginController extends ChangeNotifier {
     notifyListeners();
   }
 
-void changeIsLoading(bool value) {
+  void changeIsLoading(bool value) {
     isLoading = value;
     notifyListeners();
-
-}
-
-
+  }
 
   Future<void> handleLogin() async {
     if (!key.currentState!.validate()) {
       throw ErrorDescription('Validacao_incorreta');
     }
-      
-      changeIsLoading(true);
-      try {
+
+    changeIsLoading(true);
+    try {
       await login();
       emailController.clear();
       senhaController.clear();
-
-      } finally {
-        changeIsLoading(false);
-      }
-
+    } finally {
+      changeIsLoading(false);
     }
-    Future<void> login() async {
+  }
+
+  Future<void> login() async {
     //Simula chamada da API
     await Future.delayed(const Duration(seconds: 2));
-    if(
-      emailController.text.trim() != 'vitor6890@gmail.com'
-      || senhaController.text.trim() != '123456'
-    ){
+    if (emailController.text.trim() != 'vitor6890@gmail.com' ||
+        senhaController.text.trim() != '123456') {
       throw AuthExeception('Email ou senha incorretos.');
     }
     user = User(nome: 'Vitor', email: emailController.text);
@@ -73,35 +67,6 @@ void changeIsLoading(bool value) {
     }
     return 'Senha inválida';
   }
-    //throw ErrorDescription('validacao_incorreta');
-  }
 
-  
-
-final List<Map<String, dynamic>> productsJson = [
-  {
-    'brand': 'Natural da terra',
-    'name': 'Rabanete',
-    'imageUrl': 'https://i.postimg.cc/8Pt82Qmf/Image-1.png',
-    'price': 10.99,
-  },
-  {
-    'brand': 'Akatsu',
-    'name': 'Acerola',
-    'imageUrl': 'https://i.postimg.cc/BQMWr9B8/Image.png',
-    'price': 7.99,
-  },
-  {
-    'brand': 'Natural da terra',
-    'name': 'Cogumelo',
-    'imageUrl': 'https://i.postimg.cc/RVP8P1vw/Image-2.png',
-    'price': 12.19,
-  },
-  {
-    'brand': 'Natural da terra',
-    'name': 'Cogumelo',
-    'imageUrl': 'https://i.postimg.cc/RVP8P1vw/Image-2.png',
-    'price': 12.19,
-  },
-];
- 
+  //throw ErrorDescription('validacao_incorreta');
+}
