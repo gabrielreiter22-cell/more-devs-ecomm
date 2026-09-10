@@ -21,7 +21,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _currentPage = 0; // Controla qual bolinha destacar
+  final int _currentPage = 0; // Controla qual bolinha destacar
   final PageController _pageController = PageController();
 
   @override

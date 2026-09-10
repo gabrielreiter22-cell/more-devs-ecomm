@@ -57,7 +57,10 @@ class ProductsSection extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   Products product = getProductList()[index];
-                  return ProductCard(product: product);
+                  return Padding(
+                    padding: const EdgeInsets.only(right: 16),
+                    child: ProductCard(product: product),
+                  );
                 },
               ),
             ),

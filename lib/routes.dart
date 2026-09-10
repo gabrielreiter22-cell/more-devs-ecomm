@@ -4,6 +4,7 @@ import 'package:more_devs_do_zero/features/home/pages/products_by_category_page.
 import 'package:more_devs_do_zero/features/login/pages/login_page.dart';
 import 'package:more_devs_do_zero/features/recover/pages/recover_page.dart';
 import 'package:more_devs_do_zero/features/signup/pages/signup_page.dart';
+import 'package:more_devs_do_zero/shared/mocks.dart';
 
 class AppRoutes {
   static final Map<String, WidgetBuilder> routes = {
@@ -13,7 +14,8 @@ class AppRoutes {
     HomePage.route: (context) => const HomePage(),
     ProductsByCategoryPage.route: (context) {
       final categoryName =
-          ModalRoute.of(context)?.settings.arguments as String? ?? 'Categoria';
+          ModalRoute.of(context)?.settings.arguments as String? ??
+          categoriesJson.first['name'] as String;
       return ProductsByCategoryPage(categoryName: categoryName);
     },
   };
